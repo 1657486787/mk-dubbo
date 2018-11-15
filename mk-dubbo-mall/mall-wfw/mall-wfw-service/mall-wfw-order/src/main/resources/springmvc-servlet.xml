@@ -15,12 +15,13 @@
 
 	<!-- 和本地bean一样实现服务 -->
 	<bean id="orderService" class="com.suns.service.impl.OrderServiceImpl" />
-	<bean id="productService" class="com.suns.service.impl.ProductServiceImpl" />
 
 	<!-- 定义跳转的文件的前后缀 ，视图模式配置 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/"></property>
 		<property name="suffix" value=".jsp"></property>
 	</bean>
+
+	<import resource="dubbo.xml" />
 
 </beans>
