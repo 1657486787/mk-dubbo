@@ -3,23 +3,28 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>mk-dubbo</artifactId>
+        <artifactId>mall-fbs</artifactId>
         <groupId>com.suns</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.suns</groupId>
-    <artifactId>mk-dubbo-mall</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>mall-fbs-controller</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <modules>
-        <module>mall-mvc</module>
-        <module>mall-fbs</module>
-    </modules>
+    <packaging>war</packaging>
 
-    <name>mk-dubbo-mall</name>
+    <name>mall-fbs-controller</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.suns</groupId>
+            <artifactId>mall-fbs-support</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>

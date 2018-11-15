@@ -1,4 +1,15 @@
 mall-mvc是一个普通的mvc项目，启动后访问路径：http://localhost:8080/index
+
 需要做的事情：
 1.将mall-mvc拆成分布式的项目（把服务拆开）
+mall-fbs-support:存放业务接口和实体
+mall-fbs-service:具体的业务实现类-生产者
+mall-fbs-controller:入口-消费者
+启动步骤：
+先启动mall-fbs-service,用main方式启动，FbsServer.main
+再启动mall-fbs-controller,用tomcat方式启动
+启动后访问路径：http://localhost:8080/index,http://localhost:8080/order
+
+
 2.将mall-mvc拆成微服务（controller-server-dao）
+
