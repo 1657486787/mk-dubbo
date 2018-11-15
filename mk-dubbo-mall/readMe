@@ -1,0 +1,4 @@
+mall-mvc是一个普通的mvc项目，启动后访问路径：http://localhost:8080/index
+需要做的事情：
+1.将mall-mvc拆成分布式的项目（把服务拆开）
+2.将mall-mvc拆成微服务（controller-server-dao）

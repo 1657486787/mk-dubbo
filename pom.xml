@@ -10,6 +10,7 @@
   <version>1.0-SNAPSHOT</version>
   <modules>
     <module>mk-dubbo-store</module>
+    <module>mk-dubbo-mall</module>
   </modules>
 
   <name>mk-dubbo</name>
