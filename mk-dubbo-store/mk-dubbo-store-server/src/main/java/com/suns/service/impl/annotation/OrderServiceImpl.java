@@ -3,32 +3,33 @@
  * Package Name:com.suns.service.impl <br>
  *
  * @author mk <br>
- * Date:2018-11-12 17:27 <br>
+ * Date:2018-11-12 17:25 <br>
  */
 
-package com.suns.service.impl;
+package com.suns.service.impl.annotation;
 
-import com.suns.dao.UserDao;
-import com.suns.service.UserService;
+import com.suns.dao.OrderDao;
+import com.suns.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * ClassName: UserServiceImpl <br>
+ * ClassName: OrderServiceImpl <br>
  * Description:  <br>
  * @author mk
- * @Date 2018-11-12 17:27 <br>
+ * @Date 2018-11-12 17:25 <br>
  * @version
  */
-@Service
-public class UserServiceImpl implements UserService {
+//@Service
+@com.alibaba.dubbo.config.annotation.Service
+public class OrderServiceImpl implements OrderService {
 
     @Autowired
-    private UserDao userDao;
+    private OrderDao orderDao;
 
     @Override
     public String getDetail(String id) {
         System.out.println(super.getClass().getName()+"被调用一次："+System.currentTimeMillis());
-        return userDao.getDetail(id);
+        return orderDao.getDetail(id);
     }
 }

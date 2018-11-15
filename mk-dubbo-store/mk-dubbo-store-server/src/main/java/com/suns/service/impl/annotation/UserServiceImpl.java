@@ -3,33 +3,33 @@
  * Package Name:com.suns.service.impl <br>
  *
  * @author mk <br>
- * Date:2018-11-12 17:29 <br>
+ * Date:2018-11-12 17:27 <br>
  */
 
-package com.suns.service.impl;
+package com.suns.service.impl.annotation;
 
 import com.suns.dao.UserDao;
-import com.suns.service.VipUserService;
+import com.suns.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * ClassName: VipUserServiceImpl <br>
+ * ClassName: UserServiceImpl <br>
  * Description:  <br>
  * @author mk
- * @Date 2018-11-12 17:29 <br>
+ * @Date 2018-11-12 17:27 <br>
  * @version
  */
-@Service
-public class VipUserServiceImpl implements VipUserService {
+//@Service
+@com.alibaba.dubbo.config.annotation.Service
+public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserDao userDao;
 
-
     @Override
-    public String getVipDetail(String id) {
+    public String getDetail(String id) {
         System.out.println(super.getClass().getName()+"被调用一次："+System.currentTimeMillis());
-        return userDao.getDetail(id) + "-->1234";
+        return userDao.getDetail(id);
     }
 }

@@ -10,12 +10,12 @@
     <context:component-scan base-package="com.suns.service.impl.xml,com.suns.dao.impl"/>
 
     <!-- 提供方应用信息，用于计算依赖关系 -->
-    <dubbo:application name="mk-dubbo-store-server"/>
+    <!--<dubbo:application name="mk-dubbo-store-server"/>-->
 
     <!-- 使用multicast广播注册中心暴露服务地址 -->
-    <dubbo:registry address="zookeeper://127.0.0.1:2181" />
+    <!--<dubbo:registry address="zookeeper://47.107.146.57:2181" />-->
 
-    <dubbo:protocol name="dubbo" port="20800" />
+   <!-- <dubbo:protocol name="dubbo" port="20800" />-->
 
     <!-- 声明需要暴露的服务接口 -->
     <dubbo:service interface="com.suns.service.UserService" ref="userService" />

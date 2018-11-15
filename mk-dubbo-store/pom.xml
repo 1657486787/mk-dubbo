@@ -17,6 +17,7 @@
         <module>mk-dubbo-store-api</module>
         <module>mk-dubbo-store-server</module>
         <module>mk-dubbo-store-portal</module>
+        <!--<module>mk-dubbo-store-server-springboot</module>-->
     </modules>
 
     <name>mk-dubbo-store</name>
