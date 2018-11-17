@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+        http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <dubbo:application name="consumer"/>
+    <dubbo:registry address="zookeeper://127.0.0.1:2181" />
+    <dubbo:registry address="zookeeper://10.50.10.169:2181" />
+   <!-- <dubbo:protocol name="dubbo" port="1234" />-->
+    <dubbo:reference interface="com.suns.service.DemoService" id="demoService" retries="2"/>
+
+    <dubbo:reference interface="com.suns.service.async.BarService" id="barService" async="true"/>
+    <dubbo:reference interface="com.suns.service.async.FooService" id="fooService" >
+            <dubbo:method name="find" async="true"/>
+    </dubbo:reference>
+    
+    
+    <dubbo:reference interface="com.suns.service.impl.geneic.MyGeneicService" id="myGenericService" generic="true"/>
+    
+</beans>
