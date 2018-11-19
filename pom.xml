@@ -12,6 +12,7 @@
     <module>mk-dubbo-store</module>
     <module>mk-dubbo-mall</module>
     <module>mk-dubbo-demo</module>
+      <module>mk-dubbo-spi</module>
   </modules>
 
   <name>mk-dubbo</name>

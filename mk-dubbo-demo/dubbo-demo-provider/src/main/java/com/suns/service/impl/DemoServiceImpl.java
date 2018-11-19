@@ -21,7 +21,12 @@ public class DemoServiceImpl implements DemoService {
 
     @Override
     public String sayHello(String name) {
-        System.out.println("提供者sayHello:"+name);
-        return "hello:"+name;
+        try {
+            System.out.println("提供者sayHello:" + name);
+            return "hello:" + name;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
     }
 }

@@ -8,17 +8,23 @@
         http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
     <dubbo:application name="consumer"/>
-    <dubbo:registry address="zookeeper://127.0.0.1:2181" />
     <dubbo:registry address="zookeeper://10.50.10.169:2181" />
-   <!-- <dubbo:protocol name="dubbo" port="1234" />-->
+    <dubbo:protocol name="dubbo" port="1234" />
     <dubbo:reference interface="com.suns.service.DemoService" id="demoService" retries="2"/>
 
+    <!--异步-->
     <dubbo:reference interface="com.suns.service.async.BarService" id="barService" async="true"/>
     <dubbo:reference interface="com.suns.service.async.FooService" id="fooService" >
             <dubbo:method name="find" async="true"/>
     </dubbo:reference>
-    
-    
+
+    <!--事件通知 有问题-->
+    <dubbo:reference interface="com.suns.service.DemoService" id="demoService2" >
+        <dubbo:method name="sayHello" async="true" onreturn="demoCallback.onreturn" onthrow="demoCallback.onthrow"/>
+    </dubbo:reference>
+    <bean id="demoCallback" class="com.suns.service.impl.eventNotify.NotifyImpl" />
+
+    <!--泛化-->
     <dubbo:reference interface="com.suns.service.impl.geneic.MyGeneicService" id="myGenericService" generic="true"/>
     
 </beans>

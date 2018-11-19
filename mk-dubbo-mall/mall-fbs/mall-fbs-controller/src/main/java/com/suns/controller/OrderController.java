@@ -31,6 +31,7 @@ public class OrderController {
     @RequestMapping(value = "/order/submit", method = RequestMethod.GET)
     public String submit(HttpServletRequest request, HttpServletResponse response){
         OrderEntiry orderView = orderService.getDetail("1");
+        orderView.setStatus(-1);
         orderView = orderService.submit(orderView);
 
         request.setAttribute("order", orderView);

@@ -20,4 +20,11 @@
     <dubbo:reference interface="com.suns.service.PayService" id="payService"/>
 
 
+    <!-- 事件通知 访问路径http://localhost:8080/order/submit-->
+   <!-- <dubbo:reference interface="com.suns.service.OrderService" id="orderService">
+        <dubbo:method name="submit" async="true" onreturn="callBack.onOrderSubmit" onthrow="callBack.onError" />
+    </dubbo:reference>
+
+    <bean id="callBack" class="com.suns.callback.CallBack" />-->
+
 </beans>

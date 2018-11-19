@@ -14,6 +14,7 @@ import com.alibaba.dubbo.rpc.service.GenericService;
 import com.suns.service.DemoService;
 import com.suns.service.async.BarService;
 import com.suns.service.async.FooService;
+import com.suns.service.impl.eventNotify.NotifyImpl;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -95,6 +96,28 @@ public class Consumer {
         Object result = genericService.$invoke("sayHello",new String[]{"java.lang.String"},new Object []{"泛化"});
         System.out.println(result);
     }
+
+
+    @Test
+    public void demo5() throws InterruptedException {
+        //事件通知
+        DemoService demoService = (DemoService) context.getBean("demoService2");
+        System.out.println(demoService.sayHello("mk"));
+
+        NotifyImpl notify = (NotifyImpl) context.getBean("demoCallback");
+        //for Test：只是用来说明callback正常被调用，业务具体实现自行决定.
+        System.out.println(notify.ret);
+        for (int i = 0; i < 100; i++) {
+            if (notify.ret.size() <= 0) {
+                System.out.println(notify.ret);
+                Thread.sleep(1000);
+            } else {
+                break;
+            }
+        }
+        System.out.println(notify.ret);
+    }
+
 
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"classpath:dubbo-consumer.xml"});

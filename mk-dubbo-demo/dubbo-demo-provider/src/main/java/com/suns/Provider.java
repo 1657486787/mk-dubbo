@@ -22,9 +22,22 @@ import java.io.IOException;
 public class Provider {
 
     public static void main(String[] args) throws IOException {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"classpath:dubbo-geneic.xml"});
+//        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"classpath:dubbo.xml"});
+//        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"classpath:dubbo-async.xml"});
+//        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"classpath:dubbo-geneic.xml"});
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"classpath:dubbo-events-notify.xml"});
         context.start();
         System.out.println("provider start ...");
-        System.in.read();
+
+//        System.in.read();
+
+        // 保证服务一直开着
+        synchronized (Provider.class) {
+            try {
+                Provider.class.wait();
+            } catch (Throwable e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
