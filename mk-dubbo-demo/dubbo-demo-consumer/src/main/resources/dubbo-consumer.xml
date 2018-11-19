@@ -18,9 +18,9 @@
             <dubbo:method name="find" async="true"/>
     </dubbo:reference>
 
-    <!--事件通知 有问题-->
+    <!--事件通知 async=false测试可以，但是async=true有问题-->
     <dubbo:reference interface="com.suns.service.DemoService" id="demoService2" >
-        <dubbo:method name="sayHello" async="true" onreturn="demoCallback.onreturn" onthrow="demoCallback.onthrow"/>
+        <dubbo:method name="sayHello" async="false" onreturn="demoCallback.onreturn" onthrow="demoCallback.onthrow"/>
     </dubbo:reference>
     <bean id="demoCallback" class="com.suns.service.impl.eventNotify.NotifyImpl" />
 
