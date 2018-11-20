@@ -19,5 +19,6 @@
         <property name="suffix" value=".jsp"></property>
     </bean>
 
-    <import resource="dubbo.xml"/>
+   <!-- <import resource="dubbo.xml"/>-->
+    <import resource="dubbo_spi.xml"/>
 </beans>

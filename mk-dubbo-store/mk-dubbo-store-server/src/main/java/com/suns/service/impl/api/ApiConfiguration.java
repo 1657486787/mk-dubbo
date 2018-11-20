@@ -38,7 +38,7 @@ public class ApiConfiguration {
     public RegistryConfig registryConfig(){
         // 连接注册中心配置
         RegistryConfig registryConfig = new RegistryConfig();
-        registryConfig.setAddress("zookeeper://127.0.0.1:2181");
+        registryConfig.setAddress("zookeeper://10.50.10.169:2181");
         return registryConfig;
     }
 

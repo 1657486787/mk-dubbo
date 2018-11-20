@@ -7,7 +7,7 @@ server:
 
 dubbo:
   name: mk-dubbo-store-server-springboot
-  zookeeper: zookeeper://127.0.0.1:2181
+  zookeeper: zookeeper://10.50.10.169:2181
 
 swagger:
   host: local.dev.com

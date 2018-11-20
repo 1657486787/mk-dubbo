@@ -1,0 +1,2 @@
+com.suns.spi.jdk.DubboJdkSpiServiceImpl
+com.suns.spi.jdk.RmiJdkSpiServiceImpl

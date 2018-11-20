@@ -47,6 +47,14 @@ public class StoreServer {
         System.out.println("dubbo server start..............................");
 
         //为了保证服务一直运行，利用输入流的阻塞来模拟
-        System.in.read();// 按任意键退出
+//        System.in.read();// 按任意键退出
+        synchronized (StoreServer.class){
+            try {
+                StoreServer.class.wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 }

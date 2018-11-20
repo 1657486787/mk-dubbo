@@ -1,0 +1,2 @@
+beforeFilter=com.suns.spi.dubbo.filter.BeforeFilter
+afterFilter=com.suns.spi.dubbo.filter.AfterFilter
