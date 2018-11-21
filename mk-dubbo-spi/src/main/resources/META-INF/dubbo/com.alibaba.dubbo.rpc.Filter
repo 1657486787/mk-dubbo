@@ -1,2 +1,2 @@
-beforeFilter=com.suns.spi.dubbo.filter.BeforeFilter
-afterFilter=com.suns.spi.dubbo.filter.AfterFilter
+providerFilter=com.suns.spi.dubbo.filter.ProviderFilter
+consumerFilter=com.suns.spi.dubbo.filter.ConsumerFilter

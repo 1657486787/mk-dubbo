@@ -39,10 +39,11 @@ public class StoreServer {
          * dubbo_annotation.xml
          * dubbo_api.xml
          */
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:dubbo.xml");
+//        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:dubbo.xml");
 //        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:dubbo_properties.xml");
 //        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:dubbo_annotation.xml");
 //        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:dubbo_api.xml");
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:dubbo_spi.xml");
         context.start();
         System.out.println("dubbo server start..............................");
 

@@ -20,11 +20,17 @@ import java.util.ServiceLoader;
  *  c.写个main方法运行，通过ServerLoader.load(JdkSpiService.class)，迭代，就可以获取具体的实现
  * 2.dubbo:
  *  a.在pom中引入dubbo的依赖
- *  b.对有@SPI接口，写自己的实现类，如FirstLoadBalance，LastLoadBalance
+ *  b.对有@SPI接口，写自己的实现类，如FirstLoadBalance，LastLoadBalance（LoadBalance是应用在消费端）
  *  c.在resources/META-INF/dubbo/下，新建一个名为接口全路径的文件，如com.alibaba.dubbo.rpc.cluster.LoadBalance，里面的内容（key-value）就是具体的实现，自己根据业务来设置
  *  d.配合提供者和消费者食用，如提供者mk-dubbo-store-server，消费者mk-dubbo-store-portal，在消费者的配置文件dubbo_spi.xml中新增如下配置
  *      <dubbo:reference interface="com.suns.service.UserService" id="userService" loadbalance="first"/>
  *     <dubbo:reference interface="com.suns.service.OrderService" id="orderService" loadbalance="last"/>
+ *
+ *  SPI中Filter可以应用在提供者和消费者，应用场景：可以隐式的传递参数，在消费者这传递参数，在提供者（服务端）拿到参数
+ *  如定义了两个Filter:ProviderFilter,ConsumerFilter：可以定义在某一个接口中，也可以定义全局，一般情况会定义在全局
+ *  <dubbo:provider filter="providerFilter" />
+ *  <dubbo:consumer check="false" filter="consumerFilter"/>
+ *
  * @author mk
  * @Date 2018-11-20 8:58 <br>
  * @version
