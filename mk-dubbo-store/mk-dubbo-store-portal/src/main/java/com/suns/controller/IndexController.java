@@ -42,12 +42,19 @@ public class IndexController implements ApplicationContextAware {
 
     @RequestMapping("/index")
     public String index(HttpServletRequest request, HttpServletResponse response){
-        String id = request.getParameter("id");
-        String userView = userService.getDetail(id);
-        String orderView = orderService.getDetail(id);
-        request.setAttribute("userView",userView);
-        request.setAttribute("orderView",orderView);
-        return "index";
+        try{
+            String id = request.getParameter("id");
+            String userView = userService.getDetail(id);
+            String orderView = orderService.getDetail(id);
+            request.setAttribute("userView",userView);
+            request.setAttribute("orderView",orderView);
+            return "index";
+
+        }catch (Exception e){
+            System.out.println("...........error.............");
+            e.printStackTrace();
+            return e.getMessage();
+        }
     }
 
     @RequestMapping(value = "/check", method = RequestMethod.GET)

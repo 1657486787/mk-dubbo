@@ -1,2 +1,3 @@
 providerFilter=com.suns.spi.dubbo.filter.ProviderFilter
 consumerFilter=com.suns.spi.dubbo.filter.ConsumerFilter
+businessExceptionFilter=com.suns.spi.dubbo.filter.BusinessExceptionFilter

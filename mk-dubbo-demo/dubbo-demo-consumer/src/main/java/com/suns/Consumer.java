@@ -118,6 +118,18 @@ public class Consumer {
         System.out.println(notify.ret);
     }
 
+    @Test
+    public void demo6() throws InterruptedException {
+        try{
+            DemoService demoService = (DemoService) context.getBean("demoService");
+            System.out.println(demoService.sayHello("mk"));
+
+        }catch (Exception e){
+            System.out.println("........error..................");
+            e.printStackTrace();
+        }
+    }
+
 
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"classpath:dubbo-consumer.xml"});

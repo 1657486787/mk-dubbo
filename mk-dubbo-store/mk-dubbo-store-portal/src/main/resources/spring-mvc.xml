@@ -20,5 +20,6 @@
     </bean>
 
    <!-- <import resource="dubbo.xml"/>-->
-    <import resource="dubbo_spi.xml"/>
+    <!--<import resource="dubbo_spi.xml"/>-->
+    <import resource="dubbo_exception.xml"/>
 </beans>
